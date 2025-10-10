@@ -15,7 +15,7 @@ export default function TimerChallenge({ title, targetTime }) {
         // doesnot cause this component function to re-evaluate.     
         timer.current = setTimeout(() => {
             setTimerExpired(true)
-            dialog.current.showModal()
+            dialog.current.open()
         }, targetTime * 1000)
 
         setTimerStarted(true)
