@@ -88,7 +88,7 @@
   ```jsx
   import { useImperativeHandle, useRef, forwardRef } from "react";
 
-  const Modal = forwardRef((props, ref) => {
+  export default function Modal (props, ref) {
     const dialogRef = useRef();
 
     useImperativeHandle(ref, () => ({
@@ -97,5 +97,5 @@
     }));
 
     return <dialog ref={dialogRef}>Modal Content</dialog>;
-  });
+  } ;
   ```
