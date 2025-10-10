@@ -83,7 +83,7 @@
 ---
 
 ## 7. **Exposing Component APIs via `useImperativeHandle` Hook**
-- Used with `forwardRef` to define specific methods/properties accessible from parent components.
+- Used to define specific methods/properties accessible from parent components.
 
   ```jsx
   import { useImperativeHandle, useRef, forwardRef } from "react";
