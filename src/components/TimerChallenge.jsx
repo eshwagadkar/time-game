@@ -12,9 +12,12 @@ export default function TimerChallenge({ title, targetTime }) {
 
     // Clear the timer manually after the target time ran out 
     if(timeRemaining <= 0) {
-        setTimeRemaining(targetTime * 1000)
         dialog.current.open()  // Open the modal because we did not press the handleStop in time (We Lost case)
         clearInterval(timer.current)  // Clean up timer manually if handleStop is not invoked. 
+    }
+    
+    function handleReset(){
+        setTimeRemaining(targetTime * 1000)
     }
 
     function handleStart() {    
@@ -31,7 +34,12 @@ export default function TimerChallenge({ title, targetTime }) {
     }
 
     return <>
-    <ResultModal ref={dialog} targetTime={targetTime} result='lost' />
+    <ResultModal
+      ref={dialog}  
+      targetTime={targetTime}
+      remainingTime={timeRemaining}
+      onReset={handleReset}
+    />
     <section className="challenge">
         <h2>{title}</h2>
         <p className="challenge-time">
